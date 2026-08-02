@@ -5,6 +5,7 @@ body {
 h1, footer {
   font-family: "Jersey 10 Charted", sans-serif;
   font-weight: 400;
+  text-align: center;
 }
 
 h1 {
@@ -13,7 +14,6 @@ h1 {
 
 footer {
     font-size: 10px;
-    text-align: center;
 }
     
 
@@ -38,6 +38,7 @@ p, .current-temperature {
     border: none;
     border-radius: 3px;
     padding: 10px;
+    font-size: 15px;
 }
 
 .search-form-input {
@@ -46,4 +47,17 @@ p, .current-temperature {
 
 .search-form-submit {
     width: 90px;
+    background: rgb(16, 91, 47);
+    color:azure;
+    font-weight: 600;
+}
+
+.current-weather-details {
+    font-size: 15px;
+    text-align: center;
+}
+
+.current-weather-details strong {
+    color:rgb(4, 43, 20);
+    
 }
