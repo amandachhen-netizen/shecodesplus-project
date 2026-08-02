@@ -24,3 +24,8 @@ p, .current-temperature {
     padding: 30px;
 
 }
+
+.search-form-input, .search-form-submit {
+    border: none;
+    border-radius: 3px;
+}
