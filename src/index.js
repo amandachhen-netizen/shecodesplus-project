@@ -1,11 +1,21 @@
-//API functionality
-function displayTemperature(response) {
-  let cityTempVariable = document.querySelector("#current-temperature");
-  let temperature = Math.round(response.data.temperature.current);
-  cityTempVariable.innerHTML = temperature;
+//Display temperature as per API
+function updateTemp(response){
+    let temperatureVariable = document.querySelector("#current-temperature");
+    let temperatureRounded = Math.round(response.data.temperature.current);
+    temperatureVariable.innerHTML = `${temperatureRounded}°C`;
+    
+ 
 }
 
-//User city search functionality
+//Searched city is mapped to API
+function searchCity(city){
+    let apiKey = "4eda3e1bbo05f384dt87aa5370dd4f39";
+    let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    //console.log(apiURL);
+    axios.get(apiURL).then(updateTemp);
+}
+
+//User searches for a city
 function search(event) {
   event.preventDefault();
   //alert("Searching");
@@ -17,13 +27,14 @@ function search(event) {
   } else {
     alert("Please enter a city");
   }
+  searchCity(cityInputVariable.value);
 }
 
 let formVariable = document.querySelector("#searchForm");
 formVariable.addEventListener("submit", search);
 
-let city = cityInputVariable.value;
-let apiKey = "4eda3e1bbo05f384dt87aa5370dd4f39";
-let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-axios.get(apiURL).then(displayTemperature);
+
+
+
+
