@@ -2,9 +2,10 @@
 function updateTemp(response){
     let temperatureVariable = document.querySelector("#current-temperature");
     let temperatureRounded = Math.round(response.data.temperature.current);
+    let h1UserCityVariable = document.querySelector("#displayCity");
+
+    h1UserCityVariable.innerHTML = response.data.city;
     temperatureVariable.innerHTML = `${temperatureRounded}°C`;
-    
- 
 }
 
 //Searched city is mapped to API
@@ -18,7 +19,6 @@ function searchCity(city){
 //User searches for a city
 function search(event) {
   event.preventDefault();
-  //alert("Searching");
   let cityInputVariable = document.querySelector("#searchACity");
 
   let h1UserCityVariable = document.querySelector("#displayCity");
@@ -33,7 +33,7 @@ function search(event) {
 let formVariable = document.querySelector("#searchForm");
 formVariable.addEventListener("submit", search);
 
-
+searchCity("Melbourne");
 
 
 
