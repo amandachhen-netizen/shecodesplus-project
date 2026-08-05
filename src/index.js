@@ -5,7 +5,7 @@ function search(event){
 
     let h1UserCityVariable = document.querySelector("#displayCity");
     if(cityInputVariable.value.trim() !== ""){
-        h1UserCityVariable.innerHTML = `${cityInputVariable.value}`;
+        h1UserCityVariable.innerHTML = cityInputVariable.value;
     } else {
         alert("Please enter a city");
     }
