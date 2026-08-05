@@ -4,7 +4,11 @@ function search(event){
     let cityInputVariable = document.querySelector("#searchACity");
 
     let h1UserCityVariable = document.querySelector("#displayCity");
-    h1UserCityVariable.innerHTML = `${cityInputVariable.value}`;
+    if(cityInputVariable.value.trim() !== ""){
+        h1UserCityVariable.innerHTML = `${cityInputVariable.value}`;
+    } else {
+        alert("Please enter a city");
+    }
 }
 
 
