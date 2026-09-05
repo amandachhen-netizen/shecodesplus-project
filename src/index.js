@@ -9,7 +9,8 @@ function updateTemp(response){
     let windSpeedRounded = Math.round(response.data.wind.speed);
     let timeVariable = document.querySelector("#time");
     let date = new Date(response.data.time * 1000);
-
+    let iconVariable = document.querySelector("#icon");
+    
     console.log(response.data);
 
     h1UserCityVariable.innerHTML = response.data.city;
@@ -18,6 +19,7 @@ function updateTemp(response){
     humidityVariable.innerHTML = `${response.data.temperature.humidity} %`;
     windSpeedVariable.innerHTML = `${windSpeedRounded} km/hour`;
     timeVariable.innerHTML = formatDate(date);
+    iconVariable.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-emoji" />`;
 }
 //Function to format date
 function formatDate(date) {
