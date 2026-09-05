@@ -6,14 +6,15 @@ function updateTemp(response){
     let descriptionVariable = document.querySelector("#description");
     let humidityVariable = document.querySelector("#humidity");
     let windSpeedVariable = document.querySelector("#windSpeed");
+    let windSpeedRounded = Math.round(response.data.wind.speed);
 
     console.log(response.data);
 
     h1UserCityVariable.innerHTML = response.data.city;
     temperatureVariable.innerHTML = `${temperatureRounded}°C`;
     descriptionVariable.innerHTML = response.data.condition.description;
-    humidityVariable.innerHTML = `${response.data.temperature.humidity}%`;
-    windSpeedVariable.innerHTML = `${response.data.wind.speed} km/hour`;
+    humidityVariable.innerHTML = `${response.data.temperature.humidity} %`;
+    windSpeedVariable.innerHTML = `${windSpeedRounded} km/hour`;
 }
 
 //Searched city is mapped to API
