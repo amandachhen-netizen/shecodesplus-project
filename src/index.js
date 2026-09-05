@@ -14,7 +14,7 @@ function updateTemp(response){
     let date = new Date(response.data.time * 1000);
     let iconVariable = document.querySelector("#icon");
     
-    console.log(response.data);
+    //console.log(response.data);
 
     h1UserCityVariable.innerHTML = response.data.city;
     temperatureVariable.innerHTML = `${temperatureRounded}°C`;
