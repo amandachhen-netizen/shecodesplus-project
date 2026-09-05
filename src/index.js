@@ -4,6 +4,9 @@ function updateTemp(response){
     let temperatureRounded = Math.round(response.data.temperature.current);
     let h1UserCityVariable = document.querySelector("#displayCity");
     let descriptionVariable = document.querySelector("#description");
+    let descriptionUpperCase =
+      response.data.condition.description.charAt(0).toUpperCase() +
+      response.data.condition.description.slice(1);
     let humidityVariable = document.querySelector("#humidity");
     let windSpeedVariable = document.querySelector("#windSpeed");
     let windSpeedRounded = Math.round(response.data.wind.speed);
@@ -15,7 +18,7 @@ function updateTemp(response){
 
     h1UserCityVariable.innerHTML = response.data.city;
     temperatureVariable.innerHTML = `${temperatureRounded}°C`;
-    descriptionVariable.innerHTML = response.data.condition.description;
+    descriptionVariable.innerHTML = descriptionUpperCase;
     humidityVariable.innerHTML = `${response.data.temperature.humidity} %`;
     windSpeedVariable.innerHTML = `${windSpeedRounded} km/hour`;
     timeVariable.innerHTML = formatDate(date);
