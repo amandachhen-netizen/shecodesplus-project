@@ -4,6 +4,8 @@ function updateTemp(response){
     let temperatureRounded = Math.round(response.data.temperature.current);
     let h1UserCityVariable = document.querySelector("#displayCity");
 
+    console.log(response.data);
+
     h1UserCityVariable.innerHTML = response.data.city;
     temperatureVariable.innerHTML = `${temperatureRounded}°C`;
 }
