@@ -3,11 +3,13 @@ function updateTemp(response){
     let temperatureVariable = document.querySelector("#current-temperature");
     let temperatureRounded = Math.round(response.data.temperature.current);
     let h1UserCityVariable = document.querySelector("#displayCity");
+    let descriptionVariable = document.querySelector("#description");
 
-    console.log(response.data);
+    //console.log(response.data.condition.description);
 
     h1UserCityVariable.innerHTML = response.data.city;
     temperatureVariable.innerHTML = `${temperatureRounded}°C`;
+    descriptionVariable.innerHTML = response.data.condition.description;
 }
 
 //Searched city is mapped to API
