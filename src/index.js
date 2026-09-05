@@ -7,6 +7,8 @@ function updateTemp(response){
     let humidityVariable = document.querySelector("#humidity");
     let windSpeedVariable = document.querySelector("#windSpeed");
     let windSpeedRounded = Math.round(response.data.wind.speed);
+    let timeVariable = document.querySelector("#time");
+    let date = new Date(response.data.time * 1000);
 
     console.log(response.data);
 
@@ -15,7 +17,23 @@ function updateTemp(response){
     descriptionVariable.innerHTML = response.data.condition.description;
     humidityVariable.innerHTML = `${response.data.temperature.humidity} %`;
     windSpeedVariable.innerHTML = `${windSpeedRounded} km/hour`;
+    timeVariable.innerHTML = formatDate(date);
 }
+//Function to format date
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let day = days[date.getDay()];
+
+  if (minutes < 10){
+    minutes = `0${minutes}`;
+  }
+
+  return `${day} ${hours}:${minutes}`;
+  
+}
+
 
 //Searched city is mapped to API
 function searchCity(city){
